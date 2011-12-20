@@ -33,7 +33,7 @@ public class Main extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(new Panel(this));
         // Notifi hereglej baina ene hesgiig hussen gazraa duudaj Notifi iif Update hiij bolno
-        newNotif(R.drawable.not,"Notification","Hey man its to hot");
+        newNotif(R.drawable.not2,"Notification","Hey man its to hot");
     }
     
     // ene funtion iin bolowsrongui bolgoj bolno
@@ -155,10 +155,24 @@ public class Main extends Activity {
 
                  break;
                 case MotionEvent.ACTION_UP:
-		        	if(hygiene_run == 0 && hunger_run == 0 && event.getX() > hunger.x && event.getX() < hunger.x + hunger.bitmap.getHeight() && event.getY() > hunger.y && event.getY() < hunger.y + hunger.bitmap.getHeight())
+		        	if(hygiene_run == 0 && 
+		        	hunger_run == 0 && 
+		        	event.getX() > hunger.x &&
+		        	event.getX() < hunger.x + hunger.bitmap.getHeight() &&
+		        	event.getY() > hunger.y &&
+		        	event.getY() < hunger.y + hunger.bitmap.getHeight()){
 		        		hunger_run = 6;
-		        	if(hunger_run == 0 && hygiene_run == 0 && event.getX() > hygiene.x && event.getX() < hygiene.x + hygiene.bitmap.getWidth() && event.getY() > hygiene.y && event.getY() < hygiene.y + hygiene.bitmap.getHeight())
+		        		newNotif(R.drawable.not,"Notification","thanks man im done");
+		        	}
+		        	if(hunger_run == 0 &&
+		        			
+		        			hygiene_run == 0 && event.getX() > hygiene.x &&
+		        			event.getX() < hygiene.x + hygiene.bitmap.getWidth() &&
+		        			event.getY() > hygiene.y &&
+		        			event.getY() < hygiene.y + hygiene.bitmap.getHeight()){
 		        		hygiene_run = 6;
+		        		newNotif(R.drawable.not3,"Notification","oooooo yeh man thanks");
+		        	}
                  break;
             }
         	
