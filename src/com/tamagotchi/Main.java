@@ -25,6 +25,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
  
 public class Main extends Activity {
     @Override
@@ -163,6 +164,7 @@ public class Main extends Activity {
 		        	event.getY() < hunger.y + hunger.bitmap.getHeight()){
 		        		hunger_run = 6;
 		        		newNotif(R.drawable.not,"Notification","thanks man im done");
+		        		Toast.makeText(getApplicationContext(),"Usand orj baina", Toast.LENGTH_SHORT).show();
 		        	}
 		        	if(hunger_run == 0 &&
 		        			
@@ -172,6 +174,7 @@ public class Main extends Activity {
 		        			event.getY() < hygiene.y + hygiene.bitmap.getHeight()){
 		        		hygiene_run = 6;
 		        		newNotif(R.drawable.not3,"Notification","oooooo yeh man thanks");
+		        		Toast.makeText(getApplicationContext(),"Holloj baina", Toast.LENGTH_SHORT).show();
 		        	}
                  break;
             }
