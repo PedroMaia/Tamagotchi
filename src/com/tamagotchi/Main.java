@@ -6,7 +6,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -35,13 +39,15 @@ public class Main extends Activity {
     // ene funtion iin bolowsrongui bolgoj bolno
     public void newNotif(int icon,CharSequence contentTitle,CharSequence contentText){
 		
+    	int HELLO_ID = 1;
+    	
 		 	String ns = Context.NOTIFICATION_SERVICE;
 	        NotificationManager mNotificationManager = (NotificationManager) getSystemService(ns);
 	        
 	        CharSequence tickerText = "Tamagochi mode";             
 	        long when = System.currentTimeMillis();       
 	        Context context = getApplicationContext();     
-	        Intent notificationIntent = new Intent(this, NotificationActivity.class);
+	        Intent notificationIntent = new Intent(this, Main.class);
 	        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
 	      
