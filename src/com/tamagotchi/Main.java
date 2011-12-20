@@ -28,7 +28,27 @@ public class Main extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(new Panel(this));
+        // Notifi hereglej baina ene hesgiig hussen gazraa duudaj Notifi iif Update hiij bolno
+        newNotif(R.drawable.not,"Notification","Hey man its to hot");
     }
+    
+    // ene funtion iin bolowsrongui bolgoj bolno
+    public void newNotif(int icon,CharSequence contentTitle,CharSequence contentText){
+		
+		 	String ns = Context.NOTIFICATION_SERVICE;
+	        NotificationManager mNotificationManager = (NotificationManager) getSystemService(ns);
+	        
+	        CharSequence tickerText = "Tamagochi mode";             
+	        long when = System.currentTimeMillis();       
+	        Context context = getApplicationContext();     
+	        Intent notificationIntent = new Intent(this, NotificationActivity.class);
+	        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+
+	      
+	        Notification notification = new Notification(icon, tickerText, when);
+	        notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
+	        mNotificationManager.notify(HELLO_ID, notification);
+	}
     
     public class SevenUp {
     	private Bitmap bitmap;
