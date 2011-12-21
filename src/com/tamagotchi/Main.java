@@ -57,7 +57,7 @@ public class Main extends Activity {
 	        mNotificationManager.notify(HELLO_ID, notification);
 	}
     
-    public class SevenUp {
+    public class Sprite {
     	private Bitmap bitmap;
     	private Rect src;
     	private Rect dst;
@@ -66,7 +66,7 @@ public class Main extends Activity {
     	private int x;
     	private int y;
     	
-    	public SevenUp(Bitmap bitmap, int x, int y, int frameNo, Display display) {
+    	public Sprite(Bitmap bitmap, int x, int y, int frameNo, Display display) {
             this.bitmap = bitmap;
             this.x = x;
             this.x -= this.bitmap.getHeight()/2;
@@ -74,10 +74,10 @@ public class Main extends Activity {
             this.y = y;
             this.y -= this.bitmap.getHeight()/2;
             this.y -= this.y % 6;
-            this.src = new Rect(0, 0, this.bitmap.getWidth()/28, this.bitmap.getHeight());
+            this.src = new Rect(0, 0, this.bitmap.getWidth()/38, this.bitmap.getHeight());
             this.src.left = frameNo * this.bitmap.getHeight();
             this.src.right = this.src.left + this.bitmap.getHeight();
-            this.dst = new Rect(this.x, this.y, this.bitmap.getWidth()/28 + this.x, this.bitmap.getHeight() + this.y);
+            this.dst = new Rect(this.x, this.y, this.bitmap.getWidth()/38 + this.x, this.bitmap.getHeight() + this.y);
             this.frameNo = frameNo;
             this.currentFrame = frameNo;
     	}
@@ -102,7 +102,7 @@ public class Main extends Activity {
         private TutorialThread _thread;
         Bitmap
         	bitmap;
-        SevenUp
+        Sprite
         	degg,
         	hunger,
         	hunger_level,
@@ -125,11 +125,11 @@ public class Main extends Activity {
             
             display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
             bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.sprite);
-            degg = new SevenUp(bitmap, display.getWidth()/2, display.getHeight()/3, 16, display);
-            hunger = new SevenUp(bitmap, display.getWidth()/4, display.getHeight()/3*2, 14, display);
-            hunger_level = new SevenUp(bitmap, display.getWidth()/4, display.getHeight()/3*2, 11 - hunger_level_level, display);
-            hygiene = new SevenUp(bitmap, display.getWidth()/4*3, display.getHeight()/3*2, 12, display);
-            hygiene_level = new SevenUp(bitmap, display.getWidth()/4*3, display.getHeight()/3*2, 11 - hygiene_level_level, display);
+            degg = new Sprite(bitmap, display.getWidth()/2, display.getHeight()/3, 16, display);
+            hunger = new Sprite(bitmap, display.getWidth()/4, display.getHeight()/3*2, 14, display);
+            hunger_level = new Sprite(bitmap, display.getWidth()/4, display.getHeight()/3*2, 11 - hunger_level_level, display);
+            hygiene = new Sprite(bitmap, display.getWidth()/4*3, display.getHeight()/3*2, 12, display);
+            hygiene_level = new Sprite(bitmap, display.getWidth()/4*3, display.getHeight()/3*2, 11 - hygiene_level_level, display);
             
             try {
                 File root = Environment.getExternalStorageDirectory();
